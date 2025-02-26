@@ -1,3 +1,7 @@
+spring:
+  config:
+    import: file:.env[.properties] 
+
 server:
   port: ${PORT:${SERVER_PORT:0}}
 
@@ -12,7 +16,8 @@ spring:
     password: ${DB_PASSWORD}
 
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: update
     generate-ddl: true
     show-sql: true
 
