@@ -7,7 +7,7 @@ spring:
 
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/task?createDatabaseIfNotExist=true
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/task?createDatabaseIfNotExist=true
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
@@ -40,12 +40,12 @@ spring:
         jwt:
           issuer-uri: ${KEYCLOAK_ISSUER_URI}
 
-keycloak:
-  realm: ${KEYCLOAK_REALM}
-  auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL}
-  client-id: ${KEYCLOAK_CLIENT_ID}
-  credentials:
-    secret: ${KEYCLOAK_CLIENT_SECRET}
+  keycloak:
+    realm: ${KEYCLOAK_REALM}
+    auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL}
+    client-id: ${KEYCLOAK_CLIENT_ID}
+    credentials:
+      secret: ${KEYCLOAK_CLIENT_SECRET}
 
 queue:
   task:
