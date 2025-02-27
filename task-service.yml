@@ -1,27 +1,26 @@
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: ${PORT:5167}
 
 spring:
   application:
     name: task-service
 
   datasource:
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/task?createDatabaseIfNotExist=true
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/task?createDatabaseIfNotExist=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-    generate-ddl: true
     show-sql: true
 
   rabbitmq:
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
-    host: ${RABBITMQ_HOST}
-    port: ${RABBITMQ_PORT}
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
 
   security:
     oauth2:
