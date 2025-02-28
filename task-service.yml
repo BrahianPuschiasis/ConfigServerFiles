@@ -37,7 +37,7 @@ spring:
             issuer-uri: ${KEYCLOAK_ISSUER_URI:http://keycloak:8080/realms/taskManager}
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://keycloak:8080/realms/taskManager}
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://keycloak:8080/realms/taskManager/protocol/openid-connect/certs}
 
   keycloak:
     realm: ${KEYCLOAK_REALM:taskManager}
